@@ -1,6 +1,22 @@
-export const List = ({ todoList, deleteTodo }) => {
-  const complete = (id) => {
-    return deleteTodo(id) === id;
+import { FC } from "react";
+import { TodoType } from "./Todo";
+
+// type ListPropType = {
+//   id: number;
+//   content: number;
+// };
+type ListPropType = {
+  todoList: TodoType[];
+  deleteTodo: Function;
+};
+
+// type ActionPropType = {
+//   id: number;
+// };
+
+export const List: FC<ListPropType> = ({ todoList, deleteTodo }) => {
+  const complete = (id: number) => {
+    return deleteTodo(id);
   };
 
   return (

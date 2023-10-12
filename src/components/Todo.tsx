@@ -2,6 +2,11 @@ import { useState } from "react";
 import { List } from "./List";
 import { Form } from "./Form";
 
+export type TodoType = {
+  id: number;
+  content: string;
+};
+
 export const Todo = () => {
   const TODO_LIST = [
     {
@@ -18,9 +23,9 @@ export const Todo = () => {
     },
   ];
 
-  const [todos, setTodos] = useState(TODO_LIST);
+  const [todos, setTodos] = useState<TodoType[]>(TODO_LIST);
 
-  const deleteTodo = (id) => {
+  const deleteTodo = (id: number) => {
     const newTodos = todos.filter((todo) => todo.id !== id);
 
     setTodos(newTodos);
