@@ -31,7 +31,7 @@ export const Todo = () => {
     setTodos(newTodos);
   };
 
-  const createTodo = (todo) => {
+  const createTodo = (todo: TodoType) => {
     setTodos([...todos, todo]);
   };
 

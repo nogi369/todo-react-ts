@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { FC, useState } from "react";
 
-export const Form = ({ createTodo }) => {
+type FormPropType = {
+  createTodo: Function;
+};
+
+export const Form: FC<FormPropType> = ({ createTodo }) => {
   const [inputValue, setInputValue] = useState("");
 
-  const addTodo = (e) => {
-    // https://qiita.com/yokoto/items/27c56ebc4b818167ef9e
+  // const addTodo = (e: { preventDefault: () => void }) => {
+  const addTodo = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const newTodo = {
